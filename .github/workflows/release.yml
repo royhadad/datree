@@ -64,6 +64,8 @@ jobs:
           }
           "
 
+          pwd
+          ls
           REQUEST_BUILD_BODY=$REQUEST_BUILD_BODY ./request-travis-build-and-wait-until-finished.sh
   release-docker:
     env:
