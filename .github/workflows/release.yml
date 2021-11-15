@@ -24,7 +24,6 @@ jobs:
     runs-on: ubuntu-latest
     needs: define_version_job
     steps:
-      - uses: actions/checkout@v2
       - name: Extract branch name
         shell: bash
         run: echo "##[set-output name=branch;]$(echo ${GITHUB_REF#refs/heads/})"
@@ -34,6 +33,8 @@ jobs:
         run: |
           echo "Triggered by: ${{ github.actor }}!"
           pwd
+          ls
+          cd ./.github/workflows
           ls
           branch_name=${{ steps.extract_branch.outputs.branch }}
           commit_sha=${{ github.sha }}
